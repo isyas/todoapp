@@ -1,71 +1,140 @@
 <!doctype html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>todoapp</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>todoapp</title>
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <link rel="stylesheet" href="styles/font-awesome.min.css">
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
 
-  </head>
-  <body>
-    <header>
-      <div class="common-head">
-        <li class=""><img src="" alt=""></li>
-        <li class="">イシイミツヤス</li>
-      </div>
-    </header>
-    <main>
-      <a href="">
-        <ul class="task-cell">
-          <li><i class="fa fa-lg fa-files-o" aria-hidden="true"></i></li>
-          <li class="task-name">すべてのタスク</li>
-          <li>12</li>
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+</head>
+
+<body>
+  <!-- indexページ -->
+  <div class="contents-flame">
+    <div class="common-head">
+      <li class=""><img src="images/user-photo.jpg" class="user-photo" width="38" height="38" alt=""></li>
+      <li class="">イシイミツヤス</li>
+    </div>
+    <div class="main-contents">
+      <ul id="all-task" class="task-cell task-cell-bb">
+        <li class="task-icon"><img src="images/alltask@3x.png" width="22" height="21" alt=""></li>
+        <li class="task-name">すべてのタスク</li>
+        <li id="all-task-num" class="task-date"></li>
+      </ul>
+      <ul class="task-cell task-cell-bb">
+        <li class="task-icon"><img src="images/done@3x.png" width="22" height="20" alt=""></li>
+        <li class="task-name">完了したタスク</li>
+        <li class="task-date">3</li>
+      </ul>
+      <!-- タグ追加ボタン -->
+      <!-- <div id="add-tag-btn" class="add-task-area">
+        <button class="fa-btn" type="button" name="button">
+          <img src="images/fab@3x.png" width="29" height="28" alt="">
+        </button>
+      </div> -->
+    </div>
+  </div>
+
+
+  <!-- 全てのタスクの表示 html -->
+  <div id="all-task-flame" class="all-task-flame hide">
+    <div class="common-head">
+      <li id="go-to-index" class="back-link">
+        <img src="images/back@3x.png" width="16" height="25" alt="">
+      </li>
+      <li class="">すべてのタスク</li>
+    </div>
+    <div id="main-contents" class="main-contents">
+      <!-- タスクのフォーマット -->
+      <!-- <div id="todo-list" class="task-cell-bb">
+        <ul id="task-cell-box" class="task-cell task-tag">
+          <li class="task-check"><input id="task-check-1" type="checkbox"></li>
+          <li class="task-name">鶏肉買う</li>
+          <li class="task-date">5日前</li>
         </ul>
-      </a>
-      <a href="">
-        <ul class="task-cell">
-          <li><i class="fa fa-lg fa-list-ul" aria-hidden="true"></i></li>
-          <li class="task-name">勉強</li>
-          <li>5</li>
+        <ul id="task-finish" class="task-cell task-tag hide">
+          <li class="task-done">
+            <button class="cancel-btn" type="button" name="button">キャンセル</button>
+            <button class="done-btn" type="button" name="button">タスク完了</button>
+          </li>
         </ul>
-      </a>
-      <a href="">
-        <ul class="task-cell">
-          <li><i class="fa fa-lg fa-list-ul" aria-hidden="true"></i></li>
-          <li class="task-name">日々のおつかい</li>
-          <li>7</li>
-        </ul>
-      </a>
-      <a href="">
-        <ul class="task-cell">
-          <li><i class="fa fa-lg fa-check-circle-o" aria-hidden="true"></i></li>
-          <li class="task-name">完了したタスク</li>
-          <li>3</li>
-        </ul>
-      </a>
-      <button class="add-task" type="button" name="button"></button>
-    </main>
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+      </div> -->
+    </div>
+    <div id="add-btn" class="add-task-area">
+      <button class="fa-btn" type="button" name="button">
+          <img src="images/fab@3x.png" width="29" height="28" alt="">
+        </button>
+    </div>
+  </div>
 
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
+  </div>
+
+  <div class="delete-task-flame hide"></div>
+  <div class="tag-task-flame hide"></div>
+
+  <!-- タスク追加ボタン -->
+  <!-- <div id="add-tag-btn" class="add-task-area hide">
+    <button class="fa-btn" type="button" name="button">
+      <img src="images/fab@3x.png" width="29" height="28" alt="">
+    </button>
+  </div> -->
+
+  <!-- タグの追加のhtml　モーダルが立ち上がる -->
+  <div id="add-task-modal" class="add-task-box hide">
+    <div class="add-task-title">
+      <p>タグの追加</p>
+      <p id="close-btn"><img src="images/close@3x.png" width="10" height="10" alt=""></p>
+    </div>
+    <div class="add-task-text"><input id="task-text" type="text" name="" value="" autofocus></div>
+    <div class="select-tag-box">
+      <!-- <p class="tag-pulldown-box">
+        <label>
+          <select id="tag-color" class="tag-pulldown" name="">
+            <option value="blue">青</option>
+            <option value="red">赤</option>
+            <option value="green">緑</option>
+            <option value="yellow">黄色</option>
+          </select>
+        </label>
+      </p> -->
+      <p><button id="add-task-btn" class="add-task-btn" type="button" name="button">追加</button></p>
+    </div>
+  </div>
+  <div class="modal-bg hide"></div>
+
+  <!-- タグのセルフォーマット -->
+  <!-- <div id="tag-cell" class="hide">
+    <ul class="task-cell task-cell-bb">
+      <li class="task-icon"><img src="images/task-tag.png" width="22" height="20" alt=""></li>
+      <li class="task-name"></li>
+      <li class="task-date"></li>
+    </ul>
+  </div> -->
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/model.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+
 </html>

@@ -1,13 +1,190 @@
 // bower:scss
+@import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 @charset "UTF-8";
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
+body,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
 
-@import "reset.scss";
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
 
 body {
   background: #fafafa;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
 }
 
 li {
@@ -19,37 +196,273 @@ a {
   text-decoration: none;
 }
 
+input, button, textarea, select {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input, select {
+  font-size: 16px;
+  // transform: scale(0.8);
+}
+
+.contents-flame {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
 .common-head {
+  width: 100%;
   height: 64px;
+  position: fixed;
+  top: 0;
   background: #181041;
   font-size: 18px;
   color: #fff;
   display: flex;
   align-items: center;
   padding: 0 16px;
-  li {
+
+  .user-photo {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-right: 16px;
+  }
+
+  .back-link {
+    padding: 0 28px 0 10px;
+    cursor: pointer;
   }
 }
+
+.main-contents {
+  margin-top: 64px;
+}
+
+.all-task-flame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  top: 100%;
+}
+
+.delete-task-flame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  top: 200%;
+}
+
+.task-cell-bb {
+  border-bottom: 1px solid #d8d8d8;
+}
+
 .task-cell {
   display: flex;
-  border-bottom: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 14px;
   height: 56px;
   align-items: center;
-  padding: 0 16px;
+  &.task-tag {
+    border-left: 8px solid #ccc;
+  }
+
+  &.task-tag-blue {
+    border-left-color: #4990e2;
+  }
+
+  &.task-tag-red {
+    border-left-color: #ff8277;
+  }
+
+  &.task-tag-green {
+    border-left-color: #00bd9c;
+  }
+
+  &.task-tag-yellow {
+    border-left-color: #f6e730;
+  }
+
   li {
-    &.task-name{
+    &.task-icon {
+      padding: 0 16px 0 0;
+      width: 44px;
+      text-align: center;
+      padding-left: 16px;
+    }
+
+    &.task-name {
       margin-right: auto;
     }
-    &:first-child {
-      padding: 0 16px 0 0;
+
+    &.task-date {
+      color: #898989;
+      padding-right: 16px;
+    }
+
+    &.task-done {
+      margin-left: auto;
+      margin-right: 16px;
+      .cancel-btn {
+        color: #898989;
+        font-size: 14px;
+        padding: 0 8px;
+      }
+      .done-btn {
+        background: #4990E2;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 14px;
+        width: 110px;
+        height: 32px;
+      }
+    }
+
+    &.task-check {
+      padding: 0 14px 0 16px;
+      input[type="checkbox"] {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        background: url("../images/checkbox@3x.png") left top;
+        background-size: 24px 48px;
+        margin-right: 10px;
+      }
+      input[type="checkbox"]:checked::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        background: url("../images/checkbox@3x.png") left bottom;
+        background-size: 24px 48px;
+      }
     }
   }
 }
-.add-task {
-  height: 56px;
-  background: #293A92;
-  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
-  width: 56px;
-  border-radius: 56px;
+
+.add-task-area {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+
+  .fa-btn {
+    height: 56px;
+    background: #293A92;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    width: 56px;
+    border-radius: 50%;
+    position: relative;
+
+    img {
+      position: absolute;
+      left: 13px;
+      top: 13px;
+    }
+  }
+}
+
+.add-task-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 172px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.6);
+  z-index: 200;
+  .add-task-title {
+    display: flex;
+    font-size: 12px;
+    margin: 24px 24px 12px 24px;
+    p:first-child {
+      margin-right: auto;
+    }
+  }
+}
+
+.add-task-text {
+  margin: 0 24px 16px;
+  input {
+    border: 1px solid #d8d8d8;
+    width: 96%;
+    height: 32px;
+    padding: 0 2%;
+  }
+}
+
+.select-tag-box {
+  display: flex;
+  margin: 0 24px;
+  .tag-pulldown-box {
+    width: 100%;
+    padding-right: 8px;
+    .tag-pulldown {
+      position: relative;
+      border: 1px solid #d8d8d8;
+      width: 100%;
+      height: 32px;
+      padding: 0 8px;
+    }
+    label {
+      position: relative;
+      &:after {
+        display: block;
+      	content: " ";
+      	position: absolute;
+      	top: 50%;
+      	right: 8px;
+      	width: 10px;
+      	height: 10px;
+        margin-top: -2px;
+      	pointer-events: none;
+        background: url("../images/pulldown@3x.png") right 50% no-repeat;
+        background-size: 10px 10px;
+      }
+    }
+  }
+  .add-task-btn {
+    background: #4990E2;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    width: 60px;
+    height: 32px;
+  }
+}
+
+.modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.hide {
+  display: none;
+}
+
+.show-flame {
+  display: block;
+  top: 0;
+}
+
+.hide-flame {
+  display: block;
+  top: 100%;
 }

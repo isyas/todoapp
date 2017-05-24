@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>todoapp</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <header>
+      <div class="common-head">
+        <li class="back-link"><a href="index.html"><img src="images/back@3x.png" width="16" height="25" alt=""></a></li>
+        <li class="">すべてのタスク</li>
+      </div>
+    </header>
+    <main>
+      <ul class="task-cell task-cell-bb task-tag task-tag-red">
+        <li class="task-check"><input type="checkbox"></li>
+        <li class="task-name">単語の勉強</li>
+        <li class="task-date">3日前</li>
+      </ul>
+      <ul class="task-cell task-tag">
+        <li class="task-check"><input type="checkbox"></li>
+        <li class="task-name">鶏肉買う</li>
+        <li class="task-date">5日前</li>
+      </ul>
+      <ul class="task-cell task-cell-bb task-tag">
+        <li class="task-done">
+          <button class="cancel-btn" type="button" name="button">キャンセル</button>
+          <button class="done-btn" type="button" name="button">タスク完了</button>
+        </li>
+      </ul>
+      <ul class="task-cell task-cell-bb task-tag task-tag-red">
+        <li class="task-check"><input type="checkbox"></li>
+        <li class="task-name">スクワット3セット</li>
+        <li class="task-date">10日前</li>
+      </ul>
+      <ul class="task-cell task-cell-bb task-tag task-tag-blue">
+        <li class="task-check"><input type="checkbox"></li>
+        <li class="task-name">JSの勉強</li>
+        <li class="task-date">14日前</li>
+      </ul>
+      <div class="add-task-area">
+        <button class="fa-btn" type="button" name="button">
+          <img src="images/fab@3x.png" width="29" height="28" alt="">
+        </button>
+      </div>
+      <div class="add-task-box">
+        <div class="add-task-title">
+          <p>タスクの追加</p>
+          <p><img src="images/close@3x.png" width="10" height="10" alt=""></p>
+        </div>
+        <div class="add-task-text"><input type="text" name="" value=""></div>
+        <div class="select-tag-box">
+          <p class="tag-pulldown-box">
+            <label>
+              <select class="tag-pulldown" name="">
+                <option value="">勉強</option>
+                <option value="">筋トレ</option>
+                <option value="">日々のおつかい</option>
+              </select>
+            </label>
+          </p>
+          <p><button class="add-task-btn" type="button" name="button">追加</button></p>
+        </div>
+      </div>
+      <div class="modal-bg"></div>
+    </main>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/model.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
